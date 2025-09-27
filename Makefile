@@ -11,7 +11,7 @@ all: $(STL_FILES)
 
 # Rule to build stl from scad
 %.stl: %.scad
-	openscad --enable=textmetrics -o $@ $<
+	openscad -o $@ $<
 
 # Target to zip the project
 zip: all
