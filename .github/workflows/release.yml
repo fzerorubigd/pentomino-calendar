@@ -16,9 +16,11 @@ jobs:
 
       - name: Install OpenSCAD
         run: |
-          sudo add-apt-repository -y ppa:openscad/releases
           sudo apt-get update
-          sudo apt-get install -y openscad
+          sudo apt-get install -y libfuse2
+          wget https://github.com/openscad/openscad/releases/download/openscad-2021.01/OpenSCAD-2021.01-x86_64.AppImage
+          chmod +x OpenSCAD-2021.01-x86_64.AppImage
+          sudo mv OpenSCAD-2021.01-x86_64.AppImage /usr/local/bin/openscad
 
       - name: Build zip file
         run: make zip
