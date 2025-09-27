@@ -1,0 +1,5 @@
+# Ignore generated STL files
+*.stl
+
+# Ignore generated zip files
+*.zip
