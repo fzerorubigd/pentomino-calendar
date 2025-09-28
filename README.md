@@ -23,30 +23,46 @@ The puzzle consists of three main parts:
 
 ## Customization
 
-The project is designed in OpenSCAD, so you can easily customize it.
+The project is designed to be easily customizable through the `Makefile`.
 
 ### Calendar System
 
-You can change the calendar system by modifying the `data_source` variable in `base.scad`. The available options are:
-- `"jalali"`: For the Persian (Jalali) calendar.
-- `"gregorian"`: For the Gregorian calendar.
-- `"jalali_animal"`: For the Persian (Jalali) calendar with animal years.
+You can change the calendar system by setting the `CALENDAR_TYPE` variable when running `make`. The available options are:
+- `jalali`: For the Persian (Jalali) calendar (default).
+- `gregorian`: For the Gregorian calendar.
+- `jalali_animal`: For the Persian (Jalali) calendar with animal years.
 
-### Language and Year
-
-All the text, including months, days of the week, and the years, are defined in the `data.scad` file. To change the language or the range of years, you need to edit the corresponding data inside this file. For example, to change the years for the Gregorian calendar, you would modify the `gregorian()` function in `data.scad`.
+Example:
+```bash
+make CALENDAR_TYPE=gregorian
+```
 
 ### Personal Message
 
-The base of the calendar includes a personal message box. You can change the message by editing the `text3d` call in `base.scad`.
+You can customize the personal message on the base of the calendar using the following `make` variables:
+- `PERSONAL_MESSAGE`: The text of the message.
+- `PERSONAL_MESSAGE_FONT`: The font to use.
+- `PERSONAL_MESSAGE_SIZE`: The font size.
+- `PERSONAL_MESSAGE_SPIN`: The rotation of the text.
+- `PERSONAL_MESSAGE_DIRECTION`: The text direction (`ltr` or `rtl`).
+- `PERSONAL_MESSAGE_LANGUAGE`: The language of the text (e.g., `en`, `fa`).
+- `PERSONAL_MESSAGE_SCRIPT`: The script of the text (e.g., `latin`, `arabic`).
+
+Example:
+```bash
+make PERSONAL_MESSAGE="Hello World" PERSONAL_MESSAGE_FONT="Ubuntu" PERSONAL_MESSAGE_DIRECTION="ltr"
+```
 
 ### Dimensions
 
-You can adjust the size of the calendar by changing variables like `block`, `pad`, and `depth` in `base.scad`.
+You can adjust the size of the calendar by changing variables like `block`, `pad`, and `depth` in the `.scad` files.
 
 ## Dependencies
 
-This project uses the [BOSL2 library](https://github.com/revarbat/BOSL2) for OpenSCAD. Make sure you have it installed and included in your OpenSCAD project.
+This project uses the [BOSL2 library](https://github.com/revarbat/BOSL2) for OpenSCAD, which is included as a git submodule. When you clone this repository, make sure to initialize and update the submodule by running:
+```
+git submodule update --init --recursive
+```
 
 ## Printing and Assembly
 

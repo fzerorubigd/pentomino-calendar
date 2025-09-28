@@ -1,6 +1,14 @@
 include <BOSL2/std.scad>;
 use <data.scad>
 
+personal_message = "این نیز بگذرد...";
+personal_message_font = "Vazir:style=Black";
+personal_message_size = 7;
+personal_message_spin = 90;
+personal_message_direction = "rtl";
+personal_message_language = "fa";
+personal_message_script = "arabic";
+
 data_source = "jalali";
 $fn = 32;
 block = 23;
@@ -43,13 +51,13 @@ difference()
 			}
 		}
 		recolor("blue") right(pad + 6.5*block+2) back(pad + 4*block / 2) 
-			text3d(" پیام شخصی برای هدیه", h = he, anchor = CENTER,
-							spin = 90,
-							size = 7,
-							font = "Vazir:style=Black",
-							direction = "rtl",
-							language = "fa",
-							script = "arabic");
+			text3d(personal_message, h = he, anchor = CENTER,
+							spin = personal_message_spin,
+							size = personal_message_size,
+							font = personal_message_font,
+							direction = personal_message_direction,
+							language = personal_message_language,
+							script = personal_message_script); 
 		data = getData(data_source);
 		for (idx = [0:len(data) - 1])
 		{

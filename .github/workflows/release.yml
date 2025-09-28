@@ -6,7 +6,7 @@ on:
       - 'v*'
 
 jobs:
-  build:
+  build_jalali:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
@@ -17,10 +17,57 @@ jobs:
       - name: Install OpenSCAD
         run: |
           sudo apt-get update
-          sudo apt-get install -y openscad
+          sudo apt-get install -y openscad fonts-vazirmatn
 
       - name: Build zip file
         run: make zip
+        env:
+          CALENDAR_TYPE: jalali
+          PERSONAL_MESSAGE: "این نیز بگذرد..."
+          PERSONAL_MESSAGE_DIRECTION: "rtl"
+          PERSONAL_MESSAGE_FONT: "Vazir:style=Black"
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: pentomino-calendar-jalali
+          path: pentomino-calendar-jalali.zip
+
+  build_gregorian:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+        with:
+          submodules: true
+
+      - name: Install OpenSCAD
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y openscad fonts-noto-core
+
+      - name: Build zip file
+        run: make zip
+        env:
+          CALENDAR_TYPE: gregorian
+          PERSONAL_MESSAGE: "This too shall pass..."
+          PERSONAL_MESSAGE_DIRECTION: "ltr"
+          PERSONAL_MESSAGE_FONT: "Noto Sans:style=Bold"
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: pentomino-calendar-gregorian
+          path: pentomino-calendar-gregorian.zip
+
+  release:
+    runs-on: ubuntu-latest
+    needs: [build_jalali, build_gregorian]
+    steps:
+      - name: Download all artifacts
+        uses: actions/download-artifact@v3
+        with:
+          path: artifacts
 
       - name: Create Release
         id: create_release
@@ -33,13 +80,24 @@ jobs:
           draft: false
           prerelease: false
 
-      - name: Upload Release Asset
-        id: upload-release-asset
+      - name: Upload Release Asset (Jalali)
+        id: upload-release-asset-jalali
         uses: actions/upload-release-asset@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: ./pentomino-calendar.zip
-          asset_name: pentomino-calendar.zip
+          asset_path: ./artifacts/pentomino-calendar-jalali/pentomino-calendar-jalali.zip
+          asset_name: pentomino-calendar-jalali.zip
+          asset_content_type: application/zip
+
+      - name: Upload Release Asset (Gregorian)
+        id: upload-release-asset-gregorian
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: ./artifacts/pentomino-calendar-gregorian/pentomino-calendar-gregorian.zip
+          asset_name: pentomino-calendar-gregorian.zip
           asset_content_type: application/zip
