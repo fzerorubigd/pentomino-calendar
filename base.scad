@@ -1,7 +1,7 @@
 include <BOSL2/std.scad>;
 use <data.scad>
 
-data_source = "jalalis";
+data_source = "jalali";
 $fn = 32;
 block = 23;
 pad = 18;
