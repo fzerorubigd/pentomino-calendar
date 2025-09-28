@@ -2,8 +2,6 @@
 
 This is a 3D-printable Pentomino Calendar Puzzle designed in OpenSCAD. The puzzle is a fun and challenging way to display the current date. The goal is to fit all 12 pentomino pieces onto the board, leaving only the current month and day uncovered.
 
-This calendar is currently in Persian.
-
 ## The Puzzle
 
 The puzzle consists of three main parts:
@@ -13,9 +11,10 @@ The puzzle consists of three main parts:
 
 ## Files
 
-- `base.scad`: The OpenSCAD file for the base of the calendar. It includes the grid for the days, months, and years.
+- `base.scad`: The OpenSCAD file for the base of the calendar. It includes the grid for the days, months, years and a personal message.
 - `lid.scad`: The OpenSCAD file for the lid of the calendar.
 - `tilesv2.scad`: The OpenSCAD file for the 12 pentomino puzzle pieces.
+- `data.scad`: This file contains the data for the calendar systems (Jalali, Gregorian), including the text for months, days, and years.
 
 ## How to Use
 
@@ -24,10 +23,26 @@ The puzzle consists of three main parts:
 
 ## Customization
 
-The project is designed in OpenSCAD, so you can easily customize it. For example, you can:
-- **Change the language:** Modify the `Months`, `WeekDays`, and `Days` variables in `base.scad` to your desired language.
-- **Change the year range:** Modify the `Years` variable in `base.scad`.
-- **Adjust dimensions:** Change the `block`, `pad`, and other variables to adjust the size of the calendar.
+The project is designed in OpenSCAD, so you can easily customize it.
+
+### Calendar System
+
+You can change the calendar system by modifying the `data_source` variable in `base.scad`. The available options are:
+- `"jalali"`: For the Persian (Jalali) calendar.
+- `"gregorian"`: For the Gregorian calendar.
+- `"jalali_animal"`: For the Persian (Jalali) calendar with animal years.
+
+### Language and Year
+
+All the text, including months, days of the week, and the years, are defined in the `data.scad` file. To change the language or the range of years, you need to edit the corresponding data inside this file. For example, to change the years for the Gregorian calendar, you would modify the `gregorian()` function in `data.scad`.
+
+### Personal Message
+
+The base of the calendar includes a personal message box. You can change the message by editing the `text3d` call in `base.scad`.
+
+### Dimensions
+
+You can adjust the size of the calendar by changing variables like `block`, `pad`, and `depth` in `base.scad`.
 
 ## Dependencies
 
