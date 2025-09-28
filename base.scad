@@ -1,15 +1,24 @@
 include <BOSL2/std.scad>;
 use <data.scad>
 
-personal_message = "این نیز بگذرد...";
-personal_message_font = "Vazir:style=Black";
-personal_message_size = 7;
-personal_message_spin = 90;
-personal_message_direction = "rtl";
-personal_message_language = "fa";
-personal_message_script = "arabic";
+// personal_message = "این نیز بگذرد...";
+// personal_message_font = "Vazir:style=Black";
+// personal_message_size = 7;
+// personal_message_spin = 90;
+// personal_message_direction = "rtl";
+// personal_message_language = "fa";
+// personal_message_script = "arabic";
 
-data_source = "jalali";
+personal_message = "This too shall pass...";
+personal_message_font = "Noto Sans:style=Bold";
+personal_message_size = 6;
+personal_message_spin = 90;
+personal_message_direction = "ltr";
+personal_message_language = "en";
+personal_message_script = "latin";
+
+
+data_source = "gregorian"; // anything other than jalali means gregorian
 $fn = 32;
 block = 23;
 pad = 18;
@@ -58,7 +67,7 @@ difference()
 							direction = personal_message_direction,
 							language = personal_message_language,
 							script = personal_message_script); 
-		data = getData(data_source);
+		data = getData(data_source, personal_message_font);
 		for (idx = [0:len(data) - 1])
 		{
 			x0 = idx % 10;

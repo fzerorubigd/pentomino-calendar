@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
           submodules: true
 
@@ -26,9 +26,10 @@ jobs:
           PERSONAL_MESSAGE: "این نیز بگذرد..."
           PERSONAL_MESSAGE_DIRECTION: "rtl"
           PERSONAL_MESSAGE_FONT: "Vazir:style=Black"
+          PERSONAL_MESSAGE_SIZE: "7"
 
       - name: Upload artifact
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: pentomino-calendar-jalali
           path: pentomino-calendar-jalali.zip
@@ -37,7 +38,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
           submodules: true
 
@@ -53,9 +54,10 @@ jobs:
           PERSONAL_MESSAGE: "This too shall pass..."
           PERSONAL_MESSAGE_DIRECTION: "ltr"
           PERSONAL_MESSAGE_FONT: "Noto Sans:style=Bold"
+          PERSONAL_MESSAGE_SIZE: "6"
 
       - name: Upload artifact
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: pentomino-calendar-gregorian
           path: pentomino-calendar-gregorian.zip
@@ -65,7 +67,7 @@ jobs:
     needs: [build_jalali, build_gregorian]
     steps:
       - name: Download all artifacts
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4
         with:
           path: artifacts
 

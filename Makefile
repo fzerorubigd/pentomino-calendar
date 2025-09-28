@@ -4,16 +4,16 @@
 SCAD_FILES = base.scad lid.scad tilesv2.scad
 
 # Personal message variables
-PERSONAL_MESSAGE ?= "This too shall pass..."
-PERSONAL_MESSAGE_FONT ?= "Ubuntu"
+PERSONAL_MESSAGE ?= This too shall pass...
+PERSONAL_MESSAGE_FONT ?= Ubuntu
 PERSONAL_MESSAGE_SIZE ?= 7
 PERSONAL_MESSAGE_SPIN ?= 90
-PERSONAL_MESSAGE_DIRECTION ?= "ltr"
-PERSONAL_MESSAGE_LANGUAGE ?= "en"
-PERSONAL_MESSAGE_SCRIPT ?= "latin"
+PERSONAL_MESSAGE_DIRECTION ?= ltr
+PERSONAL_MESSAGE_LANGUAGE ?= en
+PERSONAL_MESSAGE_SCRIPT ?= latin
 
 # Calendar type
-CALENDAR_TYPE ?= "gregorian"
+CALENDAR_TYPE ?= gregorian
 
 BASE_STL = base-$(CALENDAR_TYPE).stl
 OTHER_STL_FILES = lid.stl tilesv2.stl
