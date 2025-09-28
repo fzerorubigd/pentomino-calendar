@@ -76,8 +76,12 @@ I am not an expert in OpenSCAD. This project was created as a simple and fun exp
 <details>
 <summary>Example Solution</summary>
 
-![Pentomino Calendar Solution](images/pentomino-calendar-solution.jpg)
+![Pentomino Calendar Solution](images/pentomino-calendar-1.jpg)
 ![Pentomino Calendar Solution 2](images/pentomino-calendar-2.jpg)
 ![Pentomino Calendar Solution 3](images/pentomino-calendar-3.jpg)
+![Pentomino Calendar Solution 4](images/pentomino-calendar-4.jpg)
+![Pentomino Calendar Solution 5](images/pentomino-calendar-5.jpg)
+![Pentomino Calendar Solution 6](images/pentomino-calendar-6.jpg)
+![Pentomino Calendar Solution 7](images/pentomino-calendar-7.jpg)
 
 </details>
