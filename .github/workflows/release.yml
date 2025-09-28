@@ -27,6 +27,8 @@ jobs:
           PERSONAL_MESSAGE_DIRECTION: "rtl"
           PERSONAL_MESSAGE_FONT: "Vazir:style=Black"
           PERSONAL_MESSAGE_SIZE: "7"
+          PERSONAL_MESSAGE_LANGUAGE: "fa"
+          PERSONAL_MESSAGE_SCRIPT: "arabic"
 
       - name: Upload artifact
         uses: actions/upload-artifact@v4
@@ -55,6 +57,8 @@ jobs:
           PERSONAL_MESSAGE_DIRECTION: "ltr"
           PERSONAL_MESSAGE_FONT: "Noto Sans:style=Bold"
           PERSONAL_MESSAGE_SIZE: "6"
+          PERSONAL_MESSAGE_LANGUAGE: "en"
+          PERSONAL_MESSAGE_SCRIPT: "latin"
 
       - name: Upload artifact
         uses: actions/upload-artifact@v4
