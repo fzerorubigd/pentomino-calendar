@@ -1,25 +1,12 @@
 include <BOSL2/std.scad>;
+use <data.scad>
 
+data_source = "jalalis";
 $fn = 32;
 block = 23;
 pad = 18;
-text_depth = 1;
 depth = 4;
 line_width = 2;
-font = "Vazir:style=Black";
-WeekDays = [ "  شنبه  ", " یکشنبه ", " دوشنبه ", "سه‌شنبه ", "چهارشنبه", "پنجشنبه ", "  جمعه  " ];
-Days = [
-	"۱",  "۲",  "۳",  "۴",  "۵",  "۶",  "۷",  "۸",  "۹",  "۱۰", "۱۱", "۱۲", "۱۳", "۱۴", "۱۵", "۱۶",
-	"۱۷", "۱۸", "۱۹", "۲۰", "۲۱", "۲۲", "۲۳", "۲۴", "۲۵", "۲۶", "۲۷", "۲۸", "۲۹", "۳۰", "۳۱"
-];
-Months = [
-	"فروردین", "اردیبهشت", "  خرداد", "  تیر", "  مرداد", " شهریور", "  مهر", "  آبان", "  آذر", "  دی", "   بهمن",
-	"  اسفند"
-];
-Years =
-    [ "۱۴۰۴", "۱۴۰۵", "۱۴۰۶", "۱۴۰۷", "۱۴۰۸", "۱۴۰۹", "۱۴۱۰", "۱۴۱۱", "۱۴۱۲", "۱۴۱۳", "۱۴۱۴", "۱۴۱۵", "۱۴۱۶", "۱۴۱۷" ];
-
-All = concat(WeekDays, Days, Months, Years);
 
 p_width = block * 7;
 p_height = block * 10;
@@ -44,7 +31,7 @@ difference()
 
 		for (i = [0:10])
 		{
-			if (i > 5)
+			if (i == 6 || i == 10)
 			{
 				recolor("green") extrude_from_to([ pad + p_width, pad + p_height - i * block, 0 ],
 				                                 [ pad, pad + p_height - i * block, 0 ]) rect([ he, line_width ]);
@@ -55,45 +42,28 @@ difference()
 				                                 [ pad, pad + p_height - i * block, 0 ]) rect([ he, line_width ]);
 			}
 		}
-
-		for (idx = [0:len(All) - 1])
+		recolor("blue") right(pad + 6.5*block+2) back(pad + 4*block / 2) 
+			text3d(" پیام شخصی برای هدیه", h = he, anchor = CENTER,
+							spin = 90,
+							size = 7,
+							font = "Vazir:style=Black",
+							direction = "rtl",
+							language = "fa",
+							script = "arabic");
+		data = getData(data_source);
+		for (idx = [0:len(data) - 1])
 		{
 			x0 = idx % 10;
 			y = (idx - x0) / 10;
 			x = x0 + 1;
-			if (idx < 7)
-			{
-				recolor("red") right(pad + y * block + block / 2) back(pad + x * block - block / 2)
-				    text3d(All[idx], h = he, spin = 135, size = 4.5, font = font, direction = "rtl", language = "fa",
-				           script = "arabic", anchor = CENTER);
-			}
-			else if (idx < 38)
-			{
-				recolor("red") right(pad + y * block + block / 2 + 4) back(pad + x * block - block / 2)
-				    text3d(All[idx], h = he, spin = 90, size = 9, font = font, direction = "ltr", language = "fa",
-				           script = "arabic", anchor = CENTER);
-			}
-			else if (idx < 50)
-			{
-				final = All[idx];
-				recolor("blue") right(pad + y * block + block / 2)
-				    back(pad + x * block - block / 2) if ((idx >= 44 && idx < 48) || idx == 41)
-				{
-					text3d(final, h = he, spin = 135, size = 5.5, font = font, direction = "rtl", language = "fa",
-					       script = "arabic", anchor = CENTER);
-				}
-				else
-				{
-					text3d(final, h = he, spin = 135, size = 4.5, font = font, direction = "rtl", language = "fa",
-					       script = "arabic", anchor = CENTER);
-				}
-			}
-			else
-			{
-				recolor("red") right(pad + y * block + block / 2) back(pad + x * block - block / 2)
-				    text3d(All[idx], h = he, spin = 90, size = 7, font = font, direction = "ltr", language = "fa",
-				           script = "arabic", anchor = CENTER);
-			}
+			recolor("red") right(pad + y * block + block / 2+ data[idx][7]) back(pad + x * block - block / 2)
+				text3d(data[idx][0], h = he, anchor = CENTER,
+							spin = data[idx][3], 
+							size = data[idx][2], 
+							font = data[idx][1], 
+							direction = data[idx][5], 
+							language = data[idx][4], 
+							script = data[idx][6] );
 		}
 
 		cuboid([ width, height, depth ], rounding = 5,
