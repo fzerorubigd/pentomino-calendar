@@ -19,12 +19,14 @@ BASE_STL = base-$(CALENDAR_TYPE).stl
 OTHER_STL_FILES = lid.stl tilesv2.stl
 STL_FILES = $(BASE_STL) $(OTHER_STL_FILES)
 
+check-%:
+	@ command -v $* >/dev/null || (echo "Please install $* and try again" && exit 1)
 
 # Default target
 all: $(STL_FILES)
 
 # Rule to build stl from scad
-$(BASE_STL): base.scad
+$(BASE_STL): base.scad check-openscad
 	openscad -o $@ \
 		-D "data_source=\"$(CALENDAR_TYPE)\"" \
 		-D "personal_message=\"$(PERSONAL_MESSAGE)\"" \
@@ -36,11 +38,11 @@ $(BASE_STL): base.scad
 		-D "personal_message_script=\"$(PERSONAL_MESSAGE_SCRIPT)\"" \
 		base.scad 
 
-%.stl: %.scad
+%.stl: %.scad check-openscad
 	openscad -o $@ $< 
 
 # Target to zip the project
-zip: all
+zip: all check-zip
 	zip pentomino-calendar-$(CALENDAR_TYPE).zip $(STL_FILES) README.md
 
 # Target to clean the build files
