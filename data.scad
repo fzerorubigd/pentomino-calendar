@@ -5,9 +5,9 @@ dirLTR = "ltr";
 scriptArabic = "arabic";
 scriptLatin = "latin";
 
-function getData(cal, font) = cal=="jalali" ? jalali(defaultFont=font) : gregorian(defaultFont=font);
+function getData(cal, font) = cal=="persian" ? persian(defaultFont=font) : gregorian(defaultFont=font);
 
-function jalali(defaultFont = "Vazir:style=Black") = [
+function persian(defaultFont = "Vazir:style=Black") = [
     // Text, Font, Font Size, Possible Spin, language code, direction, script, top_adjust
     ["شنبه", defaultFont, 4.5, 135, langFa, dirRTL, scriptArabic, 0 ],
     ["جمعه", defaultFont, 4.5, 135, langFa, dirRTL, scriptArabic, 0 ],
@@ -65,7 +65,7 @@ function jalali(defaultFont = "Vazir:style=Black") = [
     ["آذر", defaultFont, 5.5, 135, langFa, dirRTL, scriptArabic, 0],
     ["دی", defaultFont, 5.5, 135, langFa, dirRTL, scriptArabic, 0],
 
-    ["پنج‌شنبه", defaultFont, 4.5, 135, langFa, dirRTL, scriptArabic, 0 ],
+    ["پنجشنبه", defaultFont, 4.5, 135, langFa, dirRTL, scriptArabic, 0 ],
     ["۱۴۰۷", defaultFont, 7, 90, langFa, dirLTR, scriptArabic, 4],
     ["۱۴۰۸", defaultFont, 7, 90, langFa, dirLTR, scriptArabic, 4],
     ["۱۴۰۹", defaultFont, 7, 90, langFa, dirLTR, scriptArabic, 4],

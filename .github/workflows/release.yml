@@ -6,7 +6,7 @@ on:
       - 'v*'
 
 jobs:
-  build_jalali:
+  build_persian:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
@@ -22,7 +22,7 @@ jobs:
       - name: Build zip file
         run: make zip
         env:
-          CALENDAR_TYPE: jalali
+          CALENDAR_TYPE: persian
           PERSONAL_MESSAGE: "این نیز بگذرد..."
           PERSONAL_MESSAGE_DIRECTION: "rtl"
           PERSONAL_MESSAGE_FONT: "Vazir:style=Black"
@@ -33,8 +33,8 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-artifact@v4
         with:
-          name: pentomino-calendar-jalali
-          path: pentomino-calendar-jalali.zip
+          name: pentomino-calendar-persian
+          path: pentomino-calendar-persian.zip
 
   build_gregorian:
     runs-on: ubuntu-latest
@@ -68,7 +68,7 @@ jobs:
 
   release:
     runs-on: ubuntu-latest
-    needs: [build_jalali, build_gregorian]
+    needs: [build_persian, build_gregorian]
     steps:
       - name: Download all artifacts
         uses: actions/download-artifact@v4
@@ -86,15 +86,15 @@ jobs:
           draft: false
           prerelease: false
 
-      - name: Upload Release Asset (Jalali)
-        id: upload-release-asset-jalali
+      - name: Upload Release Asset (persian)
+        id: upload-release-asset-persian
         uses: actions/upload-release-asset@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: ./artifacts/pentomino-calendar-jalali/pentomino-calendar-jalali.zip
-          asset_name: pentomino-calendar-jalali.zip
+          asset_path: ./artifacts/pentomino-calendar-persian/pentomino-calendar-persian.zip
+          asset_name: pentomino-calendar-persian.zip
           asset_content_type: application/zip
 
       - name: Upload Release Asset (Gregorian)

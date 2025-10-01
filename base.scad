@@ -18,7 +18,7 @@ personal_message_language = "en";
 personal_message_script = "latin";
 
 
-data_source = "gregorian"; // anything other than jalali means gregorian
+data_source = "gregorian"; // anything other than persian means gregorian
 $fn = 32;
 block = 23;
 pad = 18;

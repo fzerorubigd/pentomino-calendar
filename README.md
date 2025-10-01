@@ -14,7 +14,7 @@ The puzzle consists of three main parts:
 - `base.scad`: The OpenSCAD file for the base of the calendar. It includes the grid for the days, months, years and a personal message.
 - `lid.scad`: The OpenSCAD file for the lid of the calendar.
 - `tilesv2.scad`: The OpenSCAD file for the 12 pentomino puzzle pieces.
-- `data.scad`: This file contains the data for the calendar systems (Jalali, Gregorian), including the text for months, and days.
+- `data.scad`: This file contains the data for the calendar systems (persian, Gregorian), including the text for months, and days.
 
 ## How to Use
 
@@ -29,12 +29,14 @@ The project is designed to be easily customizable through the `Makefile`.
 
 You can change the calendar system by setting the `CALENDAR_TYPE` variable when running `make`. The available options are:
 - `gregorian`: For the Gregorian calendar (default).
-- `jalali`: For the Persian (Jalali) calendar.
+- `persian`: For the Persian (Jalali) calendar.
 
 Example:
 ```bash
-make CALENDAR_TYPE=jalali
+make CALENDAR_TYPE=persian
 ```
+
+> **Note:** Previously, the `persian` calendar was named `jalali`. This has been updated for clarity.
 
 ### Personal Message
 
