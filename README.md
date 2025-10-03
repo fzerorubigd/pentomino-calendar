@@ -21,6 +21,10 @@ The puzzle consists of three main parts:
 1.  **3D Print the Parts:** Print the `base`, `lid`, and all 12 `tiles`.
 2.  **Play:** Arrange the 12 pentomino pieces on the base to cover all the squares except for the current month and day.
 
+## Solver
+
+A solver for this puzzle is available at [https://github.com/fzerorubigd/pentomino-calendar-solver](https://github.com/fzerorubigd/pentomino-calendar-solver).
+
 ## Customization
 
 The project is designed to be easily customizable through the `Makefile`.
