@@ -23,7 +23,7 @@ The puzzle consists of three main parts:
 
 ## Solver
 
-A solver for this puzzle is available at [https://github.com/fzerorubigd/pentomino-calendar-solver](https://github.com/fzerorubigd/pentomino-calendar-solver).
+A solver for this puzzle is available at [https://github.com/fzerorubigd/pentomino-solver](https://github.com/fzerorubigd/pentomino-solver).
 
 ## Customization
 
