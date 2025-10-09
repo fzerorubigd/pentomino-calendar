@@ -16,7 +16,7 @@ PERSONAL_MESSAGE_SCRIPT ?= latin
 CALENDAR_TYPE ?= gregorian
 
 BASE_STL = base-$(CALENDAR_TYPE).stl
-OTHER_STL_FILES = lid.stl tilesv2.stl
+OTHER_STL_FILES = lid.stl tilesv2.stl stand.stl
 STL_FILES = $(BASE_STL) $(OTHER_STL_FILES)
 
 check-%:
