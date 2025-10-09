@@ -4,15 +4,17 @@ This is a 3D-printable Pentomino Calendar Puzzle designed in OpenSCAD. The puzzl
 
 ## The Puzzle
 
-The puzzle consists of three main parts:
+The puzzle consists of four main parts:
 - **The Base:** A grid with the months of the year and the days of the month.
 - **The Lid:** A cover for the puzzle.
 - **The Tiles:** 12 pentomino pieces.
+- **The Stand:** An optional stand to hold the puzzle.
 
 ## Files
 
 - `base.scad`: The OpenSCAD file for the base of the calendar. It includes the grid for the days, months, years and a personal message.
 - `lid.scad`: The OpenSCAD file for the lid of the calendar.
+- `stand.scad`: An optional stand to hold the puzzle.
 - `tilesv2.scad`: The OpenSCAD file for the 12 pentomino puzzle pieces.
 - `data.scad`: This file contains the data for the calendar systems (persian, Gregorian), including the text for months, and days.
 
