@@ -31,6 +31,9 @@ p_height = block * 10;
 width = p_width + pad * 2;
 height = p_height + pad * 2;
 
+magnet_w = 6.1;
+magnet_h = 2;
+
 factor = 0.7;
 difference()
 {
@@ -87,9 +90,9 @@ difference()
 		       edges = [ LEFT + FRONT, LEFT + BACK, RIGHT + FRONT, RIGHT + BACK ], anchor = TOP + LEFT + FRONT,
 		       $fn = 24);
 	}
-	right((pad / 2) * factor) back((pad / 2) * factor) #zcyl(d = 6, h = 2, anchor = TOP);
-	right((p_width + pad + pad / 2) * factor) back((pad / 2) * factor) #zcyl(d = 6, h = 2, anchor = TOP);
+	right((pad / 2) * factor) back((pad / 2) * factor) #zcyl(d = magnet_w, h = magnet_h, anchor = TOP);
+	right((p_width + pad + pad / 2) * factor) back((pad / 2) * factor) #zcyl(d = magnet_w, h = magnet_h, anchor = TOP);
 	right((p_width + pad + pad / 2) * factor)
-	    back((p_height + pad + pad / 2) * factor) #zcyl(d = 6, h = 2, anchor = TOP);
-	right((pad / 2) * factor) back((p_height + pad + pad / 2) * factor) #zcyl(d = 6, h = 2, anchor = TOP);
+	    back((p_height + pad + pad / 2) * factor) #zcyl(d = magnet_w, h = magnet_h, anchor = TOP);
+	right((pad / 2) * factor) back((p_height + pad + pad / 2) * factor) #zcyl(d = magnet_w, h = magnet_h, anchor = TOP);
 }
