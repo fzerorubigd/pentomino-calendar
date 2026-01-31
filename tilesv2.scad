@@ -83,18 +83,19 @@ module Y()
 	    cuboid([ block, 2 * block, height ], rounding = chamfer);
 }
 
-scale([ factor, factor, factor ]){xdistribute(120){Y();
-W();
-U();
-L();
-P();
-F();
-X();
-I();
-V();
-N();
-Z();
-T();
+scale([ factor, factor, factor ]){xdistribute(120){
+	Y();
+	W();
+	U();
+	L();
+	P();
+	F();
+	X();
+	I();
+	V();
+	N();
+	Z();
+	T();
 }
 }
 ;

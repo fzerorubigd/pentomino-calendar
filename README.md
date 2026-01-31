@@ -17,10 +17,18 @@ The puzzle consists of four main parts:
 - `stand.scad`: An optional stand to hold the puzzle.
 - `tilesv2.scad`: The OpenSCAD file for the 12 pentomino puzzle pieces.
 - `data.scad`: This file contains the data for the calendar systems (persian, Gregorian), including the text for months, and days.
+- `extra.scad`: This file contains the OpenSCAD code for the additional 1x1 spacer tiles and the "cheat" 2-square and 3-square pieces.
+
+## Additional Parts
+
+In addition to the main puzzle components, there are a few extra parts you can print:
+
+-   **1x1 Spacer Tiles:** Five small 1x1 square pieces are provided. These can be used to cover individual day or month squares on the base as a reminder not to place pentomino pieces on them, especially useful when trying to solve the puzzle for a specific date.
+-   **"Cheat" Pieces (2-square and 3-square):** These pieces are designed for a more relaxed puzzle experience. By using these 2-square (domino) and 3-square (tromino) pieces, you can "cheat" by leaving out almost any of the standard pentomino pieces (except the 'X' or 'I' pentominoes, which are harder to substitute) to make the puzzle easier to solve.
 
 ## How to Use
 
-1.  **3D Print the Parts:** Print the `base`, `lid`, and all 12 `tiles`.
+1.  **3D Print the Parts:** Print the `base`, `lid`, and all 12 `tiles`. Additionally, you can optionally print the extra pieces from `extra` (1x1 spacer tiles, 2-square, and 3-square "cheat" pieces) for an enhanced or more relaxed puzzling experience.
 2.  **Play:** Arrange the 12 pentomino pieces on the base to cover all the squares except for the current month and day.
 
 ## Solver

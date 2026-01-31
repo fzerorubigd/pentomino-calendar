@@ -1,7 +1,7 @@
 include <BOSL2/std.scad>;
 use <data.scad>
 
-// personal_message = "این نیز بگذرد...";
+// personal_message = "زن، زندگی، آزادی";
 // personal_message_font = "Vazir:style=Black";
 // personal_message_size = 7;
 // personal_message_spin = 90;
@@ -9,8 +9,8 @@ use <data.scad>
 // personal_message_language = "fa";
 // personal_message_script = "arabic";
 
-personal_message = "This too shall pass...";
-personal_message_font = "Noto Sans:style=Bold";
+personal_message = "Woman, Life, Freedom";
+personal_message_font = "Ubuntu:style=Bold";
 personal_message_size = 6;
 personal_message_spin = 90;
 personal_message_direction = "ltr";

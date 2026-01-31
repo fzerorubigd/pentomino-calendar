@@ -1,10 +1,10 @@
 # Makefile for Pentomino Calendar
 
 # Define the scad files
-SCAD_FILES = base.scad lid.scad tilesv2.scad
+SCAD_FILES = base.scad lid.scad tilesv2.scad extra.scad
 
 # Personal message variables
-PERSONAL_MESSAGE ?= This too shall pass...
+PERSONAL_MESSAGE ?= Woman, Life, Freedom
 PERSONAL_MESSAGE_FONT ?= Ubuntu
 PERSONAL_MESSAGE_SIZE ?= 7
 PERSONAL_MESSAGE_SPIN ?= 90
@@ -16,7 +16,7 @@ PERSONAL_MESSAGE_SCRIPT ?= latin
 CALENDAR_TYPE ?= gregorian
 
 BASE_STL = base-$(CALENDAR_TYPE).stl
-OTHER_STL_FILES = lid.stl tilesv2.stl stand.stl
+OTHER_STL_FILES = lid.stl tilesv2.stl stand.stl extra.stl
 STL_FILES = $(BASE_STL) $(OTHER_STL_FILES)
 
 check-%:
