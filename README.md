@@ -8,13 +8,19 @@ The puzzle consists of four main parts:
 - **The Base:** A grid with the months of the year and the days of the month.
 - **The Lid:** A cover for the puzzle.
 - **The Tiles:** 12 pentomino pieces.
-- **The Stand:** An optional stand to hold the puzzle.
+- **The Stand:** An optional stand to hold the puzzle. There are two stand options: `stand.scad` and `stand-extra.scad`.
+
+## Stands
+
+Two stand options are available: `stand.scad` and `stand-extra.scad`. You only need to print one of these.
+The `stand-extra.scad` option is designed with a compartment at the back to store the additional parts (1x1 spacer tiles, 2-square, and 3-square "cheat" pieces) that can be printed from `extra.scad`.
 
 ## Files
 
 - `base.scad`: The OpenSCAD file for the base of the calendar. It includes the grid for the days, months, years and a personal message.
 - `lid.scad`: The OpenSCAD file for the lid of the calendar.
 - `stand.scad`: An optional stand to hold the puzzle.
+- `stand-extra.scad`: An alternative optional stand that also provides storage space for the additional parts (1x1 spacer tiles, 2-square, and 3-square "cheat" pieces) at the back.
 - `tilesv2.scad`: The OpenSCAD file for the 12 pentomino puzzle pieces.
 - `data.scad`: This file contains the data for the calendar systems (persian, Gregorian), including the text for months, and days.
 - `extra.scad`: This file contains the OpenSCAD code for the additional 1x1 spacer tiles and the "cheat" 2-square and 3-square pieces.
